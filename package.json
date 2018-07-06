@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "export NODE_ENV=test || SET \"NODE_ENV=test\" && mocha --require babel-core/register \"test/**/*.test.js\"",
     "start": "export NODE_ENV=production || SET \"NODE_ENV=production\" && babel-node --presets env index.js",
     "start:dev": "export NODE_ENV=development || SET \"NODE_ENV=development\" && babel-node --presets env index.js"
   },
@@ -12,10 +12,23 @@
   "license": "ISC",
   "dependencies": {
     "apollo-server": "^2.0.0-rc.6",
+    "apollo-server-express": "^2.0.0-rc.6",
+    "axios": "^0.18.0",
     "graphql": "^0.13.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.1.2",
+    "graphql-tester": "0.0.5",
+    "mocha": "^5.2.0",
+    "supertest": "^3.1.0"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
   }
 }

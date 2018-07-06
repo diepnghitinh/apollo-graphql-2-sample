@@ -1,13 +1,14 @@
 require('./config/config');
-
-import { addSchemaLevelResolveFunction, ApolloServer } from 'apollo-server';
-import { schema } from './src/schemas';
-import { rootResolveFunction } from './src/utils';
+import server from './src/server';
 
 const port = process.env.PORT;
 
-addSchemaLevelResolveFunction(schema, rootResolveFunction);
+// server.app.listen({ port }).then(({ url }) => {
+//   console.log(`🚀 Server ready at ${url}`);
+// });
 
-new ApolloServer({ schema }).listen({ port }).then(({ url }) => {
-  console.log(`🚀 Server ready at ${url}`);
+server.app.listen({ port }, () => {
+  console.log(
+    `🚀 Server ready at http://localhost:${port}${server.server.graphqlPath}`
+  );
 });
