@@ -1,0 +1,21 @@
+{
+  "name": "apollo-graphql-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "export NODE_ENV=production || SET \"NODE_ENV=production\" && babel-node --presets env index.js",
+    "start:dev": "export NODE_ENV=development || SET \"NODE_ENV=development\" && babel-node --presets env index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.0.0-rc.6",
+    "graphql": "^0.13.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}

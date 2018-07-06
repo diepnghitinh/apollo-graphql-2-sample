@@ -1,0 +1,1 @@
+export { rootResolveFunction } from './rootResolveFunction';
