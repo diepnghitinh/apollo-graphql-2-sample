@@ -1,22 +1,20 @@
 # Sample Apollo GraphQL 2
 
-This sample is made with nice strucure, configurable and including Unit Test. Very heplful for GraphQL beginner.
+This sample is made with nice structure, configurable and including Unit Test. Very heplful for GraphQL beginner.
 
-# Setup
+## Setup
 
-## For development environments
+- Step 1: `npm install`
+- Step 2: (optional) Edit .env file
 
-Step 1: `npm install`
+## Test
 
-Step 2: Copy and Edit `config/config.example.json` file to `config/config.json`. If you're about to add more environments, you also need to edit `pakage.json` to set `NODE_ENV`
+- Run `npm test`
 
-Step 3: Run `npm run start:dev` or your custom scripts
+## Run with API Simulator
 
-## For production environment
+- Run `npm run gql:dev`
 
-Step 1: `npm install`
+## Custom API Simulator
 
-Step 2: Set environment variables.
-IMPORTANT: Do not set in `config` file, configuration code **won't** run if `NODE_ENV` is `production` or not set
-
-Step 3: Run `npm start`
+- Check `api-simulator/` and `.env` for detail of source code and environment variables.
