@@ -1,18 +1,16 @@
 // node modules
 import { makeExecutableSchema } from 'apollo-server';
-// Author schema and resolvers
-import { authorResolvers } from './Author/author.resolvers';
-import { authorDefs } from './Author/author.typeDefs';
-// Book schema and resolvers
-import { bookResolvers } from './Book/book.resolvers';
-import { bookDefs } from './Book/book.typeDefs';
-// Query schema and resolvers
-import { queryResolvers } from './Query/query.resolvers';
-import { queryDefs } from './Query/query.typeDefs';
-
-// Combine typeDefs and resolvers
-const typeDefs = [authorDefs, bookDefs, queryDefs];
-const resolvers = [authorResolvers, bookResolvers, queryResolvers];
-
+// Author
+import { authorResolvers } from './query/Author/author.resolvers';
+import { authorDefs } from './query/Author/author.typeDefs';
+// Book
+import { bookResolvers } from './query/Book/book.resolvers';
+import { bookDefs } from './query/Book/book.typeDefs';
+import { queryResolvers } from './query/query.resolvers';
+// query root
+import { queryDefs } from './query/query.typeDefs';
 // Export schema
-export const schema = makeExecutableSchema({ typeDefs, resolvers });
+export const schema = makeExecutableSchema({
+  typeDefs: [authorDefs, bookDefs, queryDefs],
+  resolvers: [authorResolvers, bookResolvers, queryResolvers]
+});

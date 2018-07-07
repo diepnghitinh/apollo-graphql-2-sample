@@ -1,4 +1,4 @@
-import { bookService } from '../../services';
+import { bookService } from '../../../services';
 
 export const authorResolvers = {
   Author: {
