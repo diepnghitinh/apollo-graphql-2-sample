@@ -3,6 +3,12 @@ import { expect } from 'chai';
 import request from 'supertest';
 import server from '../src/server';
 
+before(done => {
+  require('./api-simlulator');
+  console.log('-------- Start Tets Suites --------');
+  done();
+});
+
 it('Query books()', done => {
   request(server.app)
     .post('/graphql')
@@ -63,4 +69,9 @@ it('Query authors()', done => {
       expect(data.authors[0].books[0].author.name).to.be.an('string');
       done();
     });
+});
+
+after(done => {
+  console.log('-------- Finish Tets Suites --------');
+  done();
 });

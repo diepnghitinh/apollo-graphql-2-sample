@@ -1,14 +1,22 @@
-const authors = [
-  { id: 1, name: 'Author1', books: [1, 3] },
-  { id: 2, name: 'Author2', books: [2] }
-];
+import { get } from 'axios';
+const host = process.env.SIMULATOR_API_HOST;
 
 export default {
-  findAll() {
-    return authors;
+  async findAll() {
+    try {
+      const { data } = await get(`${host}/author/findall`);
+      return data;
+    } catch (error) {
+      throw error;
+    }
   },
 
-  findOne(id) {
-    return authors.find(author => author.id == id);
+  async findOne(id) {
+    try {
+      const { data } = await get(`${host}/author/findone/${id}`);
+      return data;
+    } catch (error) {
+      throw error;
+    }
   }
 };

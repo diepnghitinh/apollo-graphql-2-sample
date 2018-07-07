@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "export NODE_ENV=test || SET \"NODE_ENV=test\" && mocha --require babel-core/register \"test/**/*.test.js\"",
-    "start": "export NODE_ENV=production || SET \"NODE_ENV=production\" && babel-node --presets env index.js",
-    "start:dev": "export NODE_ENV=development || SET \"NODE_ENV=development\" && babel-node --presets env index.js"
+    "test": "mocha -r ./node_modules/dotenv/config --require babel-core/register \"test/**/*.test.js\"",
+    "start": "babel-node --plugins inline-dotenv --presets env index.js",
+    "start:dev": "babel-node --plugins inline-dotenv --presets env ./",
+    "api-simulator": "babel-node --plugins inline-dotenv --presets env test/api-simlulator/",
+    "gql:dev": "concurrently \"npm run api-simulator\" \"npm run start:dev\""
   },
   "author": "",
   "license": "ISC",
@@ -19,10 +21,12 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-plugin-inline-dotenv": "^1.1.2",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "chai": "^4.1.2",
-    "graphql-tester": "0.0.5",
+    "concurrently": "^3.6.0",
+    "dotenv": "^6.0.0",
     "mocha": "^5.2.0",
     "supertest": "^3.1.0"
   },

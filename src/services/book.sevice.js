@@ -1,19 +1,32 @@
-const books = [
-  { id: 1, name: 'Book1', author: 1 },
-  { id: 2, name: 'Book2', author: 2 },
-  { id: 3, name: 'Book3', author: 1 }
-];
+import { get, post } from 'axios';
+
+const host = process.env.SIMULATOR_API_HOST;
 
 export default {
-  findAll() {
-    return books;
+  async findAll() {
+    try {
+      const { data } = await get(`${host}/book/findall`);
+      return data;
+    } catch (error) {
+      throw error;
+    }
   },
 
-  findMany(ids) {
-    return books.filter(book => ids.includes(book.id));
+  async findMany(ids) {
+    try {
+      const { data } = await post(`${host}/book/findMany`);
+      return data;
+    } catch (error) {
+      throw error;
+    }
   },
 
-  findOne(id) {
-    return books.find(book => book.id == id);
+  async findOne(id) {
+    try {
+      const { data } = await get(`${host}/book/findone/${id}`);
+      return data;
+    } catch (error) {
+      throw error;
+    }
   }
 };
