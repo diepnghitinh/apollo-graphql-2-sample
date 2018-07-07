@@ -7,7 +7,7 @@
     "test": "mocha -r ./node_modules/dotenv/config --require babel-core/register \"test/**/*.test.js\"",
     "start": "babel-node --plugins inline-dotenv --presets env index.js",
     "start:dev": "babel-node --plugins inline-dotenv --presets env ./",
-    "api-simulator": "babel-node --plugins inline-dotenv --presets env test/api-simlulator/",
+    "api-simulator": "babel-node --plugins inline-dotenv --presets env api-simlulator/",
     "gql:dev": "concurrently \"npm run api-simulator\" \"npm run start:dev\""
   },
   "author": "",

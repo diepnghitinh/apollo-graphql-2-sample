@@ -4,7 +4,7 @@ import request from 'supertest';
 import server from '../src/server';
 
 before(done => {
-  require('./api-simlulator');
+  require('../api-simlulator');
   console.log('-------- Start Tets Suites --------');
   done();
 });
